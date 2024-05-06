@@ -1,0 +1,70 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand">Event Management System</a>
+    <button class="btn btn-outline-success" type="submit" (click)="Logout()">
+      logout
+    </button>
+  </div>
+</nav>
+<div class="container-fluid" id="main">
+  <div class="">
+    <div class="">
+      <div class="login d-flex align-items-center py-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="heading mb-4" id="heading">Upcoming Event</h3>
+
+              <div class="table_bg" *ngIf="getEvent != null">
+                <table
+                  datatable="ng"
+                  dt-options="dtOptions"
+                  dt-column-defs="dtColumnDefs"
+                  class="table table-striped table-bordered dt-responsive nowrap res_table"
+                  cellspacing="0"
+                  width="100%"
+                >
+                  <thead>
+                    <tr>
+                      <th>Index</th>
+                      <!-- <th>Image</th> -->
+                      <th>Event Name</th>
+                      <th>Start Date & Time</th>
+                      <th>End Date & Time</th>
+                      <!-- <th>Discreption</th>
+                      <th>Address</th> -->
+                      <th>Show More</th>
+                    </tr>
+                  </thead>
+                  <tbody ng-hide="loading">
+                    <tr
+                      *ngFor="let getEvents of getEvent; let i = index"
+                      ng-cloak
+                      ng-mouseenter="hover(docType)"
+                      ng-mouseleave="hover(docType)"
+                    >
+                      <td>{{ i + 1 }}</td>
+                      <!-- <td>{{getEvents.EventID}}</td> -->
+                      <!-- <td><img [src]="'data:image/jpeg;base64,' + getEvents.EventImage"/></td> -->
+                      <td>{{ getEvents.EventName }}</td>
+                      <td>{{ getEvents.EventStartDate }}</td>
+                      <td>{{ getEvents.EventEndDate }}</td>
+                      <!-- <td>{{ getEvents.EventDiscription }}</td>
+                      <td>{{ getEvents.EventAddress }}</td> -->
+                      <td>
+                        <button (click)="ViewActivity(getEvents.EventID)">
+                          View More
+                        </button>
+                        <p *ngIf="id == getEvents.EventID">{{ message }}</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

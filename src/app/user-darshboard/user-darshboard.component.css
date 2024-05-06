@@ -1,0 +1,70 @@
+.navbar {
+  height: 9vh;
+  box-shadow: 0 2px 10px black;
+  background-color: rgb(227, 207, 252);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.login-heading {
+  font-weight: 300;
+  text-align: center;
+}
+
+.btn-login {
+  font-size: 0.9rem;
+  letter-spacing: 0.05rem;
+  padding: 0.75rem 1rem;
+}
+
+#main {
+  margin-top: 8vh;
+  height: auto;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+
+.container {
+  margin-top: 8vh;
+  overflow: hidden;
+  /*background-color: rgb(192, 156, 223);*/
+  background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+  padding: 30px 30px 30px 30px;
+  border-radius: 10px;
+  justify-content: center;
+  width: 70%;
+}
+
+#heading {
+  text-align: center;
+  font-size: 55px;
+  background: -webkit-linear-gradient(#9aca32, #db764f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contentDiv{
+  position:static;
+}
+
+.table_bg{
+  margin-top: 0.6rem;
+  width: auto;
+  display: flex;
+  justify-content:center;
+  animation: auto;
+}
+
+.table{
+  width: 150%;
+  text-align: center;
+  border: 2px solid rgba(51,132,164,0.65);
+  border-radius: 11px 12px 12px 12px; 
+}

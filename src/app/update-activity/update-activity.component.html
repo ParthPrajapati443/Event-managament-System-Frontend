@@ -1,0 +1,229 @@
+<nav>
+  <app-admoin-navbar></app-admoin-navbar>
+</nav>
+<div class="contentContainer">
+  <div class="container-fluid" id="main">
+    <div class="">
+      <div class="">
+        <div class="login d-flex align-items-center py-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h3 class="heading mb-3" id="heading">
+                  Update Activity Details
+                </h3>
+                <form [formGroup]="UpdateActivityForm" (ngSubmit)="onSubmit()">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="floatingActivityName"
+                      placeholder="Activity"
+                      formControlName="ActivityName"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.ActivityName.errors &&
+                          (submitted || f.ActivityName.touched)
+                      }"
+                      id="inputActivityName"
+                      (keypress)="OnlyAlphabat($event)"
+                    />
+                    <div *ngIf="f.ActivityName.errors" class="invalid-feedback">
+                      <div
+                        *ngIf="
+                          f.ActivityName.errors.required &&
+                          (submitted || f.ActivityName.touched)
+                        "
+                      >
+                        Activity name is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.ActivityName.errors.pattern &&
+                          (submitted || f.ActivityName.touched)
+                        "
+                      >
+                        Event name contain only alphabetic characters
+                      </div>
+                      <div
+                        *ngIf="
+                          f.ActivityName.errors?.maxlength &&
+                          (submitted || f.ActivityName.touched)
+                        "
+                      >
+                        Event name length less then 20 character
+                      </div>
+                    </div>
+                    <label for="floatingActivityName"
+                      >Your Activity Name
+                    </label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="datetime-local"
+                      [min]="min"
+                      [max]="max"
+                      class="form-control"
+                      id="floatingActivityStartDate"
+                      placeholder="dd-mm-yyyy"
+                      formControlName="ActivityStartDate"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.ActivityStartDate.errors &&
+                          (submitted || f.ActivityStartDate.touched)
+                      }"
+                      id="inputActivityStartDate"
+                    />
+                    <div
+                      *ngIf="f.ActivityStartDate.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="
+                          f.ActivityStartDate.errors.required &&
+                          (submitted || f.ActivityStartDate.touched)
+                        "
+                      >
+                        Activity start date is required
+                      </div>
+                    </div>
+                    <label for="floatingActivityStartDate"
+                      >Activity Start Date</label
+                    >
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="datetime-local"
+                      [min]="min"
+                      [max]="max"
+                      [min]="UpdateActivityForm.get('ActivityStartDate')!.value"
+                      class="form-control"
+                      class="form-control"
+                      id="floatingActivityEndDate"
+                      placeholder="dd-mm-yyyy"
+                      formControlName="ActivityEndDate"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.ActivityEndDate.errors &&
+                          (submitted || f.ActivityEndDate.touched)
+                      }"
+                      id="inputActivityEndDate"
+                    />
+                    <div
+                      *ngIf="f.ActivityEndDate.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="
+                          f.ActivityEndDate.errors.required &&
+                          (submitted || f.ActivityEndDate.touched)
+                        "
+                      >
+                        Activity end date is required
+                      </div>
+                    </div>
+                    <label for="floatingActivityEndDate"
+                      >Activity End Date</label
+                    >
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="floatingActivityDiscription"
+                      placeholder="Discription"
+                      formControlName="ActivityDiscription"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.ActivityDiscription.errors &&
+                          (submitted || f.ActivityDiscription.touched)
+                      }"
+                      id="inputActivityDiscription"
+                    />
+                    <div
+                      *ngIf="f.ActivityDiscription.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="
+                          f.ActivityDiscription.errors.required &&
+                          (submitted || f.ActivityDiscription.touched)
+                        "
+                      >
+                        Activity discription is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.ActivityDiscription.errors?.maxlength &&
+                          (submitted || f.ActivityDiscription.touched)
+                        "
+                      >
+                        Activity discription length less then 300 character
+                      </div>
+                    </div>
+                    <label for="floatingActivityDiscription"
+                      >Your Activity Discription
+                    </label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="floatingActivityPrice"
+                      placeholder="ActivityPrice"
+                      formControlName="ActivityPrice"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.ActivityPrice.errors &&
+                          (submitted || f.ActivityPrice.touched)
+                      }"
+                      id="inputActivityPrice"
+                      (keypress)="OnlyNumber($event)"
+                    />
+                    <div
+                      *ngIf="f.ActivityPrice.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="
+                          f.ActivityPrice.errors.required &&
+                          (submitted || f.ActivityPrice.touched)
+                        "
+                      >
+                        Activity price is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.ActivityPrice.errors.pattern &&
+                          (submitted || f.ActivityPrice.touched)
+                        "
+                      >
+                        Enter a valid price
+                      </div>
+                    </div>
+                    <label for="floatingActivityPrice">Activity Price</label>
+                  </div>
+
+                  <div class="d-grid">
+                    <button
+                      class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                      type="submit"
+                    >
+                      SAVE
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

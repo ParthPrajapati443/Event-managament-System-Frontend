@@ -1,0 +1,256 @@
+<nav>
+  <app-admoin-navbar></app-admoin-navbar>
+</nav>
+<div class="contentContainer">
+  <div class="container-fluid" id="main">
+    <div class="">
+      <div class="">
+        <div class="login d-flex align-items-center py-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h3 class="heading mb-3" id="heading">Add Event</h3>
+
+                <form [formGroup]="addEventForm" (ngSubmit)="onSubmit()">
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="floatingEventName"
+                      placeholder="Event"
+                      formControlName="EventName"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.EventName.errors &&
+                          (submitted || f.EventName.touched)
+                      }"
+                      id="inputEventName"
+                      (keypress)="OnlyAlphabat($event)"
+                    />
+                    <div *ngIf="f.EventName.errors" class="invalid-feedback">
+                      <div
+                        *ngIf="
+                          f.EventName.errors.required &&
+                          (submitted || f.EventName.touched)
+                        "
+                      >
+                        Event name is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.EventName.errors.pattern &&
+                          (submitted || f.EventName.touched)
+                        "
+                      >
+                        Event name contain only alphabetic characters
+                      </div>
+                      <div
+                        *ngIf="
+                          f.EventName.errors?.maxlength &&
+                          (submitted || f.EventName.touched)
+                        "
+                      >
+                        Event name length less then 20 character
+                      </div>
+                    </div>
+                    <label for="floatingEventName">Your Eevent Name </label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="datetime-local"
+                      min="{{ DateToday() | date : 'yyyy-MM-ddTHH:mm:ss.sss' }}"
+                      class="form-control"
+                      id="floatingEventStartDate"
+                      placeholder="dd-mm-yyyy"
+                      formControlName="EventStartDate"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.EventStartDate.errors &&
+                          (submitted || f.EventStartDate.touched)
+                      }"
+                      id="inputEventStartDate"
+                    />
+                    <div
+                      *ngIf="f.EventStartDate.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="
+                          f.EventStartDate.errors.required &&
+                          (submitted || f.EventStartDate.touched)
+                        "
+                      >
+                        Event start date is required
+                      </div>
+                    </div>
+                    <label for="floatingEventStartDate">Event Start Date</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="datetime-local"
+                      [min]="addEventForm.get('EventStartDate')!.value"
+                      class="form-control"
+                      id="floatingEventEndDate"
+                      placeholder="dd-mm-yyyy"
+                      formControlName="EventEndDate"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.EventEndDate.errors &&
+                          (submitted || f.EventEndDate.touched)
+                      }"
+                      id="inputEventEndDate"
+                    />
+                    <div *ngIf="f.EventEndDate.errors" class="invalid-feedback">
+                      <div
+                        *ngIf="
+                          f.EventEndDate.errors.required &&
+                          (submitted || f.EventEndDate.touched)
+                        "
+                      >
+                        Event end date is required
+                      </div>
+                    </div>
+                    <label for="floatingEventEndDate">Event End Date</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="floatingEventDiscription"
+                      placeholder="Discription"
+                      formControlName="EventDiscription"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.EventDiscription.errors &&
+                          (submitted || f.EventDiscription.touched)
+                      }"
+                      id="inputEventDiscription"
+                    />
+                    <div
+                      *ngIf="f.EventDiscription.errors"
+                      class="invalid-feedback"
+                    >
+                      <div
+                        *ngIf="
+                          f.EventDiscription.errors.required &&
+                          (submitted || f.EventDiscription.touched)
+                        "
+                      >
+                        Eevent discription is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.EventDiscription.errors?.maxlength &&
+                          (submitted || f.EventDiscription.touched)
+                        "
+                      >
+                        Event discription length less then 300 character
+                      </div>
+                    </div>
+                    <label for="floatingEventDiscription"
+                      >Your Event Discription
+                    </label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="floatingEventAddress"
+                      placeholder="Address"
+                      formControlName="EventAddress"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.EventAddress.errors &&
+                          (submitted || f.EventDiscription.touched)
+                      }"
+                      id="inputEventAddress"
+                    />
+                    <div *ngIf="f.EventAddress.errors" class="invalid-feedback">
+                      <div
+                        *ngIf="
+                          f.EventAddress.errors.required &&
+                          (submitted || f.EventDiscription.touched)
+                        "
+                      >
+                        Event address is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.EventAddress.errors?.maxlength &&
+                          (submitted || f.EventDiscription.touched)
+                        "
+                      >
+                        Event address length less then 200 character
+                      </div>
+                    </div>
+                    <label for="floatingEeventName">Your Eevent Address </label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="file"
+                      (change)="submit($event)"
+                      class="form-control"
+                      id="floatingEventImage"
+                      placeholder="Image"
+                      formControlName="EventImage"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.EventImage.errors &&
+                          (submitted || f.EventImage.touched)
+                      }"
+                      id="inputEventImage"
+                    />
+                    <div *ngIf="f.EventImage.errors" class="invalid-feedback">
+                      <div
+                        *ngIf="
+                          f.EventImage.errors.required &&
+                          (submitted || f.EventImage.touched)
+                        "
+                      >
+                        Event Image is required
+                      </div>
+                    </div>
+                    <label for="floatingEeventName">Your Eevent Address </label>
+                  </div>
+
+                  <div class="d-grid">
+                    <button
+                      class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                      type="submit"
+                    >
+                      ADD
+                    </button>
+                  </div>
+
+                  <div class="d-grid row-1">
+                    <button
+                      class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                      routerLink="/AddActivity"
+                    >
+                      NEXT
+                    </button>
+                    <button
+                      class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                      routerLink="/AdminDashboard"
+                    >
+                      BACK
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

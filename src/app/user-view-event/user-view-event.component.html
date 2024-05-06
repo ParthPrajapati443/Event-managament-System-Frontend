@@ -1,0 +1,69 @@
+<nav class="navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand">Event Management System</a>
+      <button class="btn btn-outline-success" type="submit" (click)="Logout()">
+        logout
+      </button>
+    </div>
+</nav>
+<div class="contentContainer">
+    <div class="container-fluid " id="main">
+        <div class="login py-3" >
+            <div class="container">
+                <div *ngFor="let getEvents of event">
+                    <div class="eventName">
+                        <h3 id="heading" class="mb-4 align-items-center">{{getEvents.EventName}}</h3>
+                    </div>
+                    <div class="eventDetails">
+                        <div id="myDIV">
+                            <div class="item1">
+                                <img [src]="'data:image/jpeg;base64,' + getEvents.EventImage"/>
+                            </div>
+                            <div class="item2">
+                                <div class="items">Start Date & Time : {{getEvents.EventStartDate}}</div>
+                                <div class="items">End Date & Time : {{getEvents.EventEndDate}}</div>
+                                <!-- <div class="items">Start Time : {{getEvents.EventStartDat}}</div>
+                                <div class="items">End Time : {{getEvents.EventEndDate}}</div> -->
+                                <div class="items">Discription: {{getEvents.EventDiscription}}</div>
+                                <div class="items">Address: {{getEvents.EventAddress}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="activitys" *ngIf="show == true">
+                <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-striped table-bordered dt-responsive nowrap res_table">
+                  <thead>
+                      <tr>
+                          <!-- <th>#</th> -->
+                          <th>Index</th>
+                          <th>Activity Name</th>
+                          <th>Activity Date & Time</th>
+                          <th>Activity Date & Time</th>
+                          <th>Discreption</th>
+                          <th>Price</th>
+                      </tr>
+                  </thead>
+                  <tbody ng-hide="loading">
+                      <tr *ngFor="let activitys of activity, let i = index" ng-cloak ng-mouseenter="hover(docType)" ng-mouseleave="hover(docType)">
+                          <td>{{ i + 1}}</td>
+                          <!-- <td>{{activitys.ActivityID}}</td> -->
+                          <td>{{activitys.ActivityName}}</td>
+                          <td>{{activitys.ActivityStartDate}}</td>
+                          <td>{{activitys.ActivityEndDate}}</td>
+                          <td>{{activitys.ActivityDiscription}}</td>
+                          <td>{{activitys.ActivityPrice | currency:'INR'}}</td>
+                          <!-- | currency:'INR' -->
+                      </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div *ngIf="show == false" class="message">
+                <h4 class="align-items-center">{{message}}</h4>
+            </div>
+            <div class="btn-back">
+                <button class="back btn btn-outline-dark" (click)="Onclick()">BACK</button>
+            </div>
+        </div>
+    </div>
+</div>

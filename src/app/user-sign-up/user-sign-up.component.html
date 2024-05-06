@@ -1,0 +1,226 @@
+<section class="vh-100" style="background-color: #eee">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px">
+          <div class="card-body">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-10 order-2 order-lg-1">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                  Sign up
+                </p>
+
+                <form
+                  class="mx-1 mx-md-4"
+                  [formGroup]="signUpForm"
+                  (ngSubmit)="onSubmit()"
+                >
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="UserName"
+                      placeholder="Parth"
+                      formControlName="UserName"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.UserName.errors && (submitted || f.UserName.touched)
+                      }"
+                      id="inputUserName"
+                      (keypress)="OnlyAlphabat($event)"
+                    />
+                    <div *ngIf="f.UserName.errors" class="invalid-feedback">
+                      <div
+                        *ngIf="
+                          f.UserName.errors.required &&
+                          (submitted || f.UserName.touched)
+                        "
+                      >
+                        User name is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.UserName.errors.pattern &&
+                          (submitted || f.UserName.touched)
+                        "
+                      >
+                        User name contain only alphabetic characters
+                      </div>
+                      <div
+                        *ngIf="
+                          f.UserName.errors?.maxlength &&
+                          (submitted || f.UserName.touched)
+                        "
+                      >
+                        Username length less then 20 character
+                      </div>
+                    </div>
+                    <label for="UserName"> Your Name</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="UserEmail"
+                      placeholder="name@example.com"
+                      formControlName="UserEmail"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.UserEmail.errors &&
+                          (submitted || f.UserEmail.touched)
+                      }"
+                      id="inputUserEmail"
+                    />
+                    <div *ngIf="f.UserEmail.errors" class="invalid-feedback">
+                      <div
+                        *ngIf="
+                          f.UserEmail.errors.required &&
+                          (submitted || f.UserEmail.touched)
+                        "
+                      >
+                        Email is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.UserEmail.errors.pattern &&
+                          (submitted || f.UserEmail.touched)
+                        "
+                      >
+                        Email must be a valid email address
+                      </div>
+                      <div
+                        *ngIf="
+                          f.UserEmail.errors?.maxlength &&
+                          (submitted || f.UserEmail.touched)
+                        "
+                      >
+                        Email length less then 30 character
+                      </div>
+                    </div>
+                    <label for="UserEmail">Email address</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="UserPassword"
+                      placeholder="Password"
+                      formControlName="UserPassword"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.UserPassword.errors &&
+                          (submitted || f.UserPassword.touched)
+                      }"
+                      id="inputUserPasswoerd"
+                    />
+                    <div *ngIf="f.UserPassword.errors" class="invalid-feedback">
+                      <div
+                        *ngIf="
+                          f.UserPassword.errors.required &&
+                          (submitted || f.UserPassword.touched)
+                        "
+                      >
+                        Password is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.UserPassword.errors.pattern &&
+                          (submitted || f.UserPassword.touched)
+                        "
+                      >
+                        Password should be atleast 8 characters long and should
+                        contain one number,one character and one special
+                        character
+                      </div>
+                      <div
+                        *ngIf="
+                          f.UserPassword.errors.maxlength &&
+                          (submitted || f.UserPassword.touched)
+                        "
+                      >
+                        Password length between 8 to 15 character
+                      </div>
+                    </div>
+                    <label for="UserPassword">Password</label>
+                  </div>
+
+                  <div class="form-floating mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="UserMobile"
+                      placeholder="9898989898"
+                      formControlName="UserMobile"
+                      class="form-control"
+                      [ngClass]="{
+                        'is-invalid':
+                          f.UserMobile.errors &&
+                          (submitted || f.UserMobile.touched)
+                      }"
+                      id="inputUserMobile"
+                      (keypress)="OnlyNumber($event)"
+                    />
+                    <div *ngIf="f.UserMobile.errors" class="invalid-feedback">
+                      <div
+                        *ngIf="
+                          f.UserMobile.errors.required &&
+                          (submitted || f.UserMobile.touched)
+                        "
+                      >
+                        Phone number is required
+                      </div>
+                      <div
+                        *ngIf="
+                          f.UserMobile.errors.pattern &&
+                          (submitted || f.UserMobile.touched)
+                        "
+                      >
+                        Phone number must be a valid mobile number
+                      </div>
+                      <div
+                        *ngIf="
+                          (f.UserMobile.errors.max ||
+                            f.UserMobile.errors.min ||
+                            f.UserMobile.errors.maxlength) &&
+                          (submitted || f.UserMobile.touched)
+                        "
+                      >
+                        Phone Number must be a of 10 digit
+                      </div>
+                    </div>
+                    <label for="UserMobile"> Your Phone Number</label>
+                  </div>
+
+                  <div class="d-grid">
+                    <button
+                      class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                      type="submit"
+                    >
+                      Sign Up
+                    </button>
+                  </div>
+                </form>
+                <div class="d-grid py-3">
+                  <div class="text-center">
+                    <span>Do you have account. Please </span>
+                    <a class="small" routerLink="/Login">SignIn</a>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+  
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                    class="img-fluid" alt="Sample image">
+  
+                </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

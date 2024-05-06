@@ -1,0 +1,148 @@
+<div class="container-fluid ps-md-0">
+  <div class="">
+    <div class="">
+      <div class="login d-flex align-items-center py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">Welcome back!</h3>
+
+              <!-- Sign In Form -->
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-floating mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    placeholder="name@example.com"
+                    formControlName="EmailId"
+                    class="form-control"
+                    [ngClass]="{
+                      'is-invalid':
+                        f.EmailId.errors && (submitted || f.EmailId.touched)
+                    }"
+                    id="inputEmail4"
+                  />
+                  <div *ngIf="f.EmailId.errors" class="invalid-feedback">
+                    <div
+                      *ngIf="
+                        f.EmailId.errors.required &&
+                        (submitted || f.EmailId.touched)
+                      "
+                    >
+                      Email is required
+                    </div>
+                    <div
+                      *ngIf="
+                        f.EmailId.errors.pattern &&
+                        (submitted || f.EmailId.touched)
+                      "
+                    >
+                      Email must be a valid email address
+                    </div>
+                    <div
+                      *ngIf="
+                        f.EmailId.errors?.maxlength &&
+                        (submitted || f.EmailId.touched)
+                      "
+                    >
+                      Email length less then 30 character
+                    </div>
+                  </div>
+                  <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    placeholder="Password"
+                    formControlName="Password"
+                    [ngClass]="{
+                      'is-invalid':
+                        f.Password.errors && (submitted || f.Password.touched)
+                    }"
+                    id="inputPassword4"
+                  />
+                  <div *ngIf="f.Password.errors" class="invalid-feedback">
+                    <div
+                      *ngIf="
+                        f.Password.errors.required &&
+                        (submitted || f.Password.touched)
+                      "
+                    >
+                      Password is required
+                    </div>
+                    <div
+                      *ngIf="
+                        f.Password.errors.pattern &&
+                        (submitted || f.Password.touched)
+                      "
+                    >
+                      Password should be atleast 8 characters long and should
+                      contain one number,one capital character and one special
+                      character, i.e,Abcde$1234
+                    </div>
+                    <div
+                      *ngIf="
+                        f.Password.errors.maxlength &&
+                        (submitted || f.Password.touched)
+                      "
+                    >
+                      Password length between 8 to 15 character
+                    </div>
+                  </div>
+                  <label for="floatingPassword">Password</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <!-- <input type="text" class="form-control" id="floatingRole" placeholder="Role" formControlName="Role"[ngClass]="{ 'is-invalid': submitted && f.Role.errors }" id="inputRole4"> -->
+                  <select
+                    class="form-control"
+                    id="floatingRole"
+                    placeholder="Role"
+                    formControlName="Role"
+                    [ngClass]="{
+                      'is-invalid':
+                        f.Role.errors && (submitted || f.Role.touched)
+                    }"
+                    id="inputRole4"
+                  >
+                    <option selected value="User">User</option>
+                    <option value="Admin">Admin</option>
+                  </select>
+                  <div *ngIf="f.Role.errors" class="invalid-feedback">
+                    <div
+                      *ngIf="
+                        f.Role.errors.required && (submitted || f.Role.touched)
+                      "
+                    >
+                      Role is required
+                    </div>
+                  </div>
+                  <label for="floatingRole">Role</label>
+                </div>
+
+                <div class="d-grid">
+                  <button
+                    class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                    type="submit"
+                  >
+                    Sign in
+                  </button>
+                </div>
+
+                <div class="d-grid py-3">
+                  <div class="text-center">
+                    <span>Don't have account. Please </span>
+                    <a class="small" routerLink="/SignUp">SignUp</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

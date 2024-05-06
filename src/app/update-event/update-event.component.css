@@ -1,0 +1,53 @@
+nav {
+  position: fixed; 
+  z-index: 9999;   
+  width: 100%;
+  height: 10vh;
+}
+
+.contentContainer {
+  position: absolute;
+  top: 9vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.login {
+    min-height: 100vh;
+  }
+  
+  .login-heading {
+    font-weight: 300;
+    text-align: center;
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .container{
+    overflow: hidden;
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    padding: 30px 30px 30px 30px;
+    border-radius: 10px;
+    justify-content: center;
+    width: 70%;
+  }
+
+  #heading{
+    text-align: center;
+    font-size: 55px;
+    background: -webkit-linear-gradient(#9aca32, #db764f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+  }
+
+  #main{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  }
+
+  

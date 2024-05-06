@@ -1,0 +1,173 @@
+<nav>
+  <app-admoin-navbar></app-admoin-navbar>
+</nav>
+<div class="contentContainer">
+  <div class="container-fluid" id="main">
+    <div class="">
+      <!-- <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div> -->
+      <div class="">
+        <div class="login d-flex align-items-center py-3">
+          <div class="container">
+            <div class="row">
+              <div class="event col-md-9 col-lg-8 mx-auto">
+                <h3 class="heading mb-4" id="heading">Unpublished Event</h3>
+
+                <div class="table_bg" *ngIf="event != null">
+                  <table
+                    datatable="ng"
+                    dt-options="dtOptions"
+                    dt-column-defs="dtColumnDefs"
+                    class="table table-striped table-bordered dt-responsive nowrap res_table"
+                    cellspacing="0"
+                    width="100%"
+                  >
+                    <thead>
+                      <tr>
+                        <!-- <th>#</th> -->
+                        <th>Index</th>
+                        <th>Image</th>
+                        <th>Event Name</th>
+                        <th>Start Date & Time</th>
+                        <th>End Date & Time</th>
+                        <th>Discreption</th>
+                        <th>Address</th>
+                        <th>Show More</th>
+                        <th>Other Options</th>
+                        <!-- <th>Publish</th> -->
+                        <!-- <th>Update</th>
+                        <th>Delete</th> -->
+                      </tr>
+                    </thead>
+                    <tbody ng-hide="loading">
+                      <tr
+                        *ngFor="let events of event; let i = index"
+                        ng-cloak
+                        ng-mouseenter="hover(docType)"
+                        ng-mouseleave="hover(docType)"
+                      >
+                        <td>{{ i + 1 }}</td>
+                        <!-- <td>{{events.EventID}}</td> -->
+                        <td>
+                          <img
+                            [src]="
+                              'data:image/jpeg;base64,' + events.EventImage
+                            "
+                            width="250px"
+                            height="150px"
+                          />
+                        </td>
+                        <td>{{ events.EventName }}</td>
+                        <td>{{ events.EventStartDate }}</td>
+                        <td>{{ events.EventEndDate }}</td>
+                        <td>{{ events.EventDiscription }}</td>
+                        <td>{{ events.EventAddress }}</td>
+                        <td>
+                          <button (click)="ViewActivity(events.EventID)">
+                            View Activity
+                          </button>
+                          <p *ngIf="id == events.EventID">{{ message }}</p>
+                        </td>
+                        <td >
+                          <button class="otherbtn" (click)="Publish(events.EventID)">
+                            Publish
+                          </button>
+                          <button class="otherbtn" (click)="UpdateEvent(events.EventID)">
+                            Update
+                          </button>
+                          <button  class="otherbtn" (click)="DeleteEvent(events.EventID)">
+                            Delete
+                          </button>
+                        </td>
+                        <!-- <td>
+                         
+                        </td>
+                        <td>
+                          
+                        </td> -->
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div *ngIf="show == true">
+                  <table
+                    datatable="ng"
+                    dt-options="dtOptions"
+                    dt-column-defs="dtColumnDefs"
+                    class="table table-striped table-bordered dt-responsive nowrap res_table"
+                    cellspacing="0"
+                    width="100%"
+                  >
+                    <thead>
+                      <tr>
+                        <!-- <th>#</th> -->
+                        <th>Index</th>
+                        <th>Activity Name</th>
+                        <th>Activity Date & Time</th>
+                        <th>Activity Date & Time</th>
+                        <th>Discreption</th>
+                        <th>Price</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody ng-hide="loading">
+                      <tr
+                        *ngFor="let activitys of activity; let i = index"
+                        ng-cloak
+                        ng-mouseenter="hover(docType)"
+                        ng-mouseleave="hover(docType)"
+                      >
+                        <td>{{ i + 1 }}</td>
+                        <!-- <td>{{activitys.ActivityID}}</td>  -->
+                        <td>{{ activitys.ActivityName }}</td>
+                        <td>{{ activitys.ActivityStartDate }}</td>
+                        <td>{{ activitys.ActivityEndDate }}</td>
+                        <td>{{ activitys.ActivityDiscription }}</td>
+                        <td>
+                          {{ activitys.ActivityPrice | currency : "INR" }}
+                        </td>
+                        <td>
+                          <button
+                            (click)="
+                              UpdateActivity(
+                                activitys.ActivityID,
+                                activitys.EventID
+                              )
+                            "
+                          >
+                            Update
+                          </button>
+                        </td>
+                        <td>
+                          <button
+                            (click)="DeleteActivity(activitys.ActivityID)"
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-grid row-1">
+                  <button
+                    class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                    routerLink="/AddActivity"
+                  >
+                    BACK
+                  </button>
+                  <button
+                    class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2"
+                    routerLink="/AdminDashboard"
+                  >
+                    HOME
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

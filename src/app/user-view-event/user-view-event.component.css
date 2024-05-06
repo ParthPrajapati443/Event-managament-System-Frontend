@@ -1,0 +1,99 @@
+.navbar {
+  height: 9vh;
+  box-shadow: 0 2px 10px black;
+  background-color: rgb(227, 207, 252);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.contentContainer {
+  position: absolute;
+  top: 9vh;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.container{
+  overflow: hidden;
+  /*background-color: rgb(192, 156, 223);*/
+  background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+  padding: 30px 30px 30px 30px;
+  border-radius: 10px;
+  display: block;
+  justify-content: center;
+  width: 85%;
+}
+
+#heading{
+  text-align: center;
+  font-size: 45px;
+  background: -webkit-linear-gradient(#9aca32, #db764f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#myDIV {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  padding: 10px;
+  font-size: 25px;
+  }
+
+.item1 {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  grid-area: 1 / 1 ;
+}
+
+.item2 {
+  margin-left: 10px;
+}
+
+.items{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgba(238, 175, 82, 0.89);
+  padding: 0;
+  margin: 0;
+}
+
+.activitys{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 135px;
+  width: 80%;
+}
+
+.message{
+  color: #db764f;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-back{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.back{
+  margin-bottom: 20px;
+  width: 25%;
+}
+
+
+
+
+
+

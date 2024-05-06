@@ -1,0 +1,169 @@
+nav {
+    position: fixed; 
+    z-index: 9999;   
+    width: 100%;
+    height: 10vh;
+  }
+  
+.contentContainer {
+    position: absolute;
+    top: 9vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#main{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.login{
+    height: 100vh;
+}
+
+.container{
+    overflow: hidden;
+    /*background-color: rgb(192, 156, 223);*/
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    padding: 30px 30px 30px 30px;
+    border-radius: 10px;
+    display: flexbox;
+    justify-content: center;
+    width: 85%;
+}
+
+#heading{
+    text-align: center;
+    font-size: 45px;
+    background: -webkit-linear-gradient(#9aca32, #db764f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
+#myDIV {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    padding: 10px;
+  }
+  #myDIV{
+    /* background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;*/
+    font-size: 25px;
+  }
+  .item1 {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    grid-area: 1 / 1 ;
+  }
+
+.item2 {
+  margin-left: 10px;
+}
+
+.items{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgba(238, 175, 82, 0.89);
+  padding: 0;
+  margin: 0;
+}
+
+.activitys{
+  margin-top: 20px;
+}
+
+.message{
+  color: #db764f;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-back{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.back{
+  margin-bottom: 20px;
+  width: 25%;
+}
+
+.loader {
+  --w:10ch;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  letter-spacing: var(--w);
+  width:var(--w);
+  overflow: hidden;
+  white-space: nowrap;
+  text-shadow: 
+    calc(-1*var(--w)) 0, 
+    calc(-2*var(--w)) 0, 
+    calc(-3*var(--w)) 0, 
+    calc(-4*var(--w)) 0,
+    calc(-5*var(--w)) 0, 
+    calc(-6*var(--w)) 0, 
+    calc(-7*var(--w)) 0, 
+    calc(-8*var(--w)) 0, 
+    calc(-9*var(--w)) 0;
+  animation: l16 2s infinite;
+}
+.loader:before {
+  content:"Loading...";
+}
+@keyframes l16 {
+  20% {text-shadow: 
+    calc(-1*var(--w)) 0, 
+    calc(-2*var(--w)) 0 red, 
+    calc(-3*var(--w)) 0, 
+    calc(-4*var(--w)) 0 #ffa516,
+    calc(-5*var(--w)) 0 #63fff4, 
+    calc(-6*var(--w)) 0, 
+    calc(-7*var(--w)) 0, 
+    calc(-8*var(--w)) 0 green, 
+    calc(-9*var(--w)) 0;}
+  40% {text-shadow: 
+    calc(-1*var(--w)) 0, 
+    calc(-2*var(--w)) 0 red, 
+    calc(-3*var(--w)) 0 #e945e9, 
+    calc(-4*var(--w)) 0,
+    calc(-5*var(--w)) 0 green, 
+    calc(-6*var(--w)) 0 orange, 
+    calc(-7*var(--w)) 0, 
+    calc(-8*var(--w)) 0 green, 
+    calc(-9*var(--w)) 0;}
+  60% {text-shadow: 
+    calc(-1*var(--w)) 0 lightblue, 
+    calc(-2*var(--w)) 0, 
+    calc(-3*var(--w)) 0 #e945e9, 
+    calc(-4*var(--w)) 0,
+    calc(-5*var(--w)) 0 green, 
+    calc(-6*var(--w)) 0, 
+    calc(-7*var(--w)) 0 yellow, 
+    calc(-8*var(--w)) 0 #ffa516, 
+    calc(-9*var(--w)) 0 red;}
+  80% {text-shadow: 
+    calc(-1*var(--w)) 0 lightblue, 
+    calc(-2*var(--w)) 0 yellow, 
+    calc(-3*var(--w)) 0 #63fff4, 
+    calc(-4*var(--w)) 0 #ffa516,
+    calc(-5*var(--w)) 0 red, 
+    calc(-6*var(--w)) 0, 
+    calc(-7*var(--w)) 0 grey, 
+    calc(-8*var(--w)) 0 #63fff4, 
+    calc(-9*var(--w)) 0 ;}
+}
+
+
+
+
+
+
+
+
